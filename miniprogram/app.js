@@ -1,7 +1,7 @@
 // app.js
 App({
   globalData: {
-    baseUrl: 'http://localhost:8000',
+    baseUrl: 'https://edu-ai-miniprogram-production.up.railway.app',
     currentStudent: null,
   },
 })

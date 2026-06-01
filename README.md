@@ -66,7 +66,7 @@ python3 main.py
    | `DEEPSEEK_API_KEY` | 你的 DeepSeek Key |
    | `AI_PROVIDER` | deepseek |
    | `AI_MODEL` | deepseek-chat |
-6. **Railway 会自动给你一个域名**，比如 `edu-ai-miniprogram.up.railway.app`
+6. **Railway 会自动给你一个域名**，比如 `edu-ai-miniprogram-production.up.railway.app`
 7. 确认域名访问正常：`https://你的域名/api/health` 返回 `{"status":"ok"}`
 
 ### 方案二：阿里云/腾讯云服务器（自己买服务器）
@@ -102,7 +102,7 @@ python3 main.py
 
 比如 Railway 给你的域名：
 ```javascript
-const BASE_URL = () => 'https://edu-ai-miniprogram.up.railway.app'
+const BASE_URL = () => 'https://edu-ai-miniprogram-production.up.railway.app'
 ```
 
 ### 第 3 步：配置合法域名
@@ -110,7 +110,7 @@ const BASE_URL = () => 'https://edu-ai-miniprogram.up.railway.app'
 在微信小程序后台 → 开发 → 开发设置 → **服务器域名**：
 
 - `request 合法域名` 填你的 HTTPS 后端地址
-- 比如：`https://edu-ai-miniprogram.up.railway.app`
+- 比如：`https://edu-ai-miniprogram-production.up.railway.app`
 
 ### 第 4 步：上传代码
 

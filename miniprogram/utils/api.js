@@ -4,7 +4,7 @@
  */
 const BASE_URL = () => {
   const app = getApp()
-  return app.globalData.baseUrl || 'http://localhost:8000'
+  return app.globalData.baseUrl || 'https://edu-ai-miniprogram-production.up.railway.app'
 }
 
 function request(path, options = {}) {
