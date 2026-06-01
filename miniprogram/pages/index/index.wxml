@@ -26,14 +26,14 @@
       <view
         wx:for="{{students}}"
         wx:key="id"
-        class="student-card {{currentStudent?.id === item.id ? 'active' : ''}}"
+        class="student-card {{currentStudent && currentStudent.id === item.id ? 'active' : ''}}"
         bindtap="onSelectStudent"
         data-id="{{item.id}}"
       >
         <view class="student-avatar">{{item.name[0]}}</view>
         <text class="student-name">{{item.name}}</text>
         <text class="student-grade">{{item.grade}}</text>
-        <view wx:if="{{currentStudent?.id === item.id}}" class="check-badge">✓</view>
+        <view wx:if="{{currentStudent && currentStudent.id === item.id}}" class="check-badge">✓</view>
       </view>
     </scroll-view>
   </view>
