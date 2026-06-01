@@ -23,3 +23,4 @@ Thumbs.db
 # WeChat
 miniprogram/node_modules/
 miniprogram/.tea/
+miniprogram/project.private.config.json
