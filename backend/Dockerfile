@@ -3,11 +3,11 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # 安装依赖
-COPY requirements.txt .
+COPY ../requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # 拷贝项目文件
-COPY . .
+COPY .. .
 
 # 暴露端口
 EXPOSE 8000
