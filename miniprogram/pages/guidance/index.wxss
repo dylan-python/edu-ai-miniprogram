@@ -1,0 +1,38 @@
+.page-guidance { padding-bottom: 40rpx; }
+.header-actions { padding: 20rpx; }
+.header-actions .btn-primary { width: 100%; }
+.guidance-card { margin-bottom: 16rpx; }
+.guidance-header { display: flex; justify-content: space-between; margin-bottom: 8rpx; }
+.guidance-date { font-size: 24rpx; color: #999; }
+.guidance-source { font-size: 22rpx; color: #4F8CF6; background: #E8F0FE; padding: 2rpx 16rpx; border-radius: 12rpx; }
+.guidance-title { font-size: 30rpx; font-weight: 600; color: #333; display: block; margin-bottom: 8rpx; }
+.guidance-content { font-size: 26rpx; color: #666; line-height: 1.6; }
+.guidance-json { color: #4F8CF6; }
+.guidance-footer { margin-top: 12rpx; padding-top: 12rpx; border-top: 1rpx solid #f0f0f0; text-align: right; }
+.view-detail { font-size: 24rpx; color: #4F8CF6; }
+
+/* 弹窗 */
+.modal-mask {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5); z-index: 1000;
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-content {
+  width: 85%; max-height: 80vh;
+  background: #fff; border-radius: 20rpx;
+  overflow: hidden;
+}
+.modal-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 30rpx; border-bottom: 1rpx solid #f0f0f0;
+  font-size: 32rpx; font-weight: 600;
+}
+.modal-close { font-size: 40rpx; color: #999; padding: 0 8rpx; }
+.modal-body { padding: 30rpx; max-height: 60vh; }
+.detail-item { margin-bottom: 20rpx; }
+.detail-key { font-size: 26rpx; font-weight: 500; color: #4F8CF6; display: block; margin-bottom: 6rpx; }
+.detail-value { font-size: 26rpx; color: #333; line-height: 1.8; display: block; }
+.weakness-item { padding: 8rpx 0; font-size: 24rpx; color: #666; }
+.wname { font-weight: 500; color: #333; }
+
+.empty-hint { font-size: 24rpx; color: #bbb; margin-top: 8rpx; }

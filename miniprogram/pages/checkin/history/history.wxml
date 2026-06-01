@@ -1,0 +1,40 @@
+<view class="page-history">
+  <view wx:if="{{checkins.length === 0}}" class="empty-state">
+    <text class="empty-icon">📋</text>
+    <text>暂无打卡记录</text>
+    <text class="empty-hint">去首页开始每日打卡吧</text>
+  </view>
+
+  <view wx:for="{{checkins}}" wx:key="id" class="card checkin-card">
+    <view class="card-header">
+      <text class="card-date">{{item.checkin_date}}</text>
+      <text class="card-mood">{{item.mood || '—'}}</text>
+    </view>
+    <view class="card-body">
+      <view wx:if="{{item.subjects_today}}" class="info-row">
+        <text class="info-label">📚 今日学习</text>
+        <text class="info-value">{{item.subjects_today}}</text>
+      </view>
+      <view wx:if="{{item.homework_done}}" class="info-row">
+        <text class="info-label">📝 作业</text>
+        <text class="info-value">{{item.homework_done}}</text>
+      </view>
+      <view wx:if="{{item.difficulties}}" class="info-row">
+        <text class="info-label">🤔 困难</text>
+        <text class="info-value">{{item.difficulties}}</text>
+      </view>
+      <view wx:if="{{item.extracurricular}}" class="info-row">
+        <text class="info-label">🎮 课外</text>
+        <text class="info-value">{{item.extracurricular}}</text>
+      </view>
+      <view wx:if="{{item.ai_summary}}" class="ai-summary">
+        <text class="summary-label">🤖 AI 小结</text>
+        <text class="summary-text">{{item.ai_summary}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{checkins.length > 0 && hasMore}}" class="load-more" bindtap="onLoadMore">
+    <text>加载更多</text>
+  </view>
+</view>

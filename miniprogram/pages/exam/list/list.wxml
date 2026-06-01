@@ -1,0 +1,30 @@
+<view class="page-exam-list">
+  <view class="header-actions">
+    <button class="btn-primary btn-add-exam" bindtap="onAddExam">+ 录入考试</button>
+  </view>
+
+  <view wx:if="{{exams.length === 0}}" class="empty-state">
+    <text class="empty-icon">📝</text>
+    <text>还没有考试记录，点击上方按钮录入</text>
+  </view>
+
+  <view wx:for="{{exams}}" wx:key="id" class="card exam-card" bindtap="onExamDetail" data-id="{{item.id}}">
+    <view class="exam-header">
+      <view class="exam-subject-badge {{item.subject}}">{{item.subject}}</view>
+      <view class="exam-score {{item.score && item.total_score && (item.score/item.total_score >= 0.8) ? 'good' : (item.score/item.total_score >= 0.6) ? 'ok' : 'needs-work'}}">
+        <text class="score-num">{{item.score}}</text>
+        <text class="score-divider">/</text>
+        <text class="score-total">{{item.total_score}}</text>
+      </view>
+    </view>
+    <view class="exam-info">
+      <text class="exam-name">{{item.exam_name || '单元测试'}}</text>
+      <text class="exam-date">{{item.exam_date}}</text>
+    </view>
+    <view wx:if="{{item.weaknesses}}" class="exam-weakness">
+      <text class="weak-label">薄弱：</text>
+      <text class="weak-text">{{item.weaknesses.slice(0, 60)}}{{item.weaknesses.length > 60 ? '...' : ''}}</text>
+    </view>
+    <view class="exam-arrow">›</view>
+  </view>
+</view>

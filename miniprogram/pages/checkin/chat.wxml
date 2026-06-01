@@ -1,0 +1,36 @@
+<!-- AI 对话式打卡 -->
+<view class="chat-page">
+  <scroll-view class="chat-messages" scroll-y scroll-into-view="{{scrollTo}}" scroll-with-animation enhanced upper-threshold="50">
+    <view wx:for="{{messages}}" wx:key="id" class="msg-wrapper {{item.role === 'assistant' ? 'ai' : 'user'}}">
+      <view class="msg-avatar">{{item.role === 'assistant' ? '🤖' : userAvatar}}</view>
+      <view class="msg-bubble">
+        <text class="msg-text">{{item.content}}</text>
+        <text class="msg-time">{{item.time}}</text>
+      </view>
+    </view>
+
+    <view wx:if="{{isThinking}}" class="msg-wrapper ai">
+      <view class="msg-avatar">🤖</view>
+      <view class="msg-bubble thinking">
+        <view class="dot-pulse"></view>
+      </view>
+    </view>
+
+    <view id="msg-bottom"></view>
+  </scroll-view>
+
+  <!-- 快捷回复 -->
+  <scroll-view wx:if="{{suggestions.length > 0}}" class="suggestions" scroll-x enhanced show-scrollbar="{{false}}">
+    <view wx:for="{{suggestions}}" wx:key="index" class="suggestion-tag" bindtap="onSuggestion" data-text="{{item}}">
+      <text>{{item}}</text>
+    </view>
+  </scroll-view>
+
+  <!-- 输入区 -->
+  <view class="chat-input-bar">
+    <input class="chat-input" placeholder="和小智老师说说话吧..." value="{{inputText}}" bindinput="onInput" bindconfirm="onSend" confirm-type="send" maxlength="500" />
+    <button class="send-btn {{inputText.trim() ? 'active' : ''}}" bindtap="onSend" disabled="{{!inputText.trim() || isThinking}}">
+      发送
+    </button>
+  </view>
+</view>

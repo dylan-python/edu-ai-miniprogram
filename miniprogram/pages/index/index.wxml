@@ -1,0 +1,93 @@
+<!-- 首页 -->
+<view class="page-index">
+
+  <!-- 顶部欢迎 -->
+  <view class="header-banner">
+    <view class="banner-content">
+      <text class="banner-title">🌟 小智老师</text>
+      <text class="banner-subtitle">每天进步一点点，做更好的自己！</text>
+    </view>
+    <image class="banner-avatar" src="/images/me_active.png" mode="aspectFill" />
+  </view>
+
+  <!-- 学生选择 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">我的学生</text>
+      <button class="btn-add" bindtap="onAddStudent">+ 添加</button>
+    </view>
+
+    <view wx:if="{{students.length === 0}}" class="empty-state">
+      <text class="empty-icon">👦👧</text>
+      <text>还没有添加学生，点击右上角添加</text>
+    </view>
+
+    <scroll-view wx:else class="student-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+      <view
+        wx:for="{{students}}"
+        wx:key="id"
+        class="student-card {{currentStudent?.id === item.id ? 'active' : ''}}"
+        bindtap="onSelectStudent"
+        data-id="{{item.id}}"
+      >
+        <view class="student-avatar">{{item.name[0]}}</view>
+        <text class="student-name">{{item.name}}</text>
+        <text class="student-grade">{{item.grade}}</text>
+        <view wx:if="{{currentStudent?.id === item.id}}" class="check-badge">✓</view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 快捷功能 -->
+  <view wx:if="{{currentStudent}}" class="section">
+    <text class="section-title">快捷功能</text>
+
+    <view class="quick-grid">
+      <view class="quick-item" bindtap="onDailyCheckin">
+        <view class="quick-icon checkin">💬</view>
+        <text class="quick-label">每日打卡</text>
+        <text class="quick-desc">AI 聊天式打卡</text>
+      </view>
+
+      <view class="quick-item" bindtap="onExamList">
+        <view class="quick-icon exam">📝</view>
+        <text class="quick-label">考试分析</text>
+        <text class="quick-desc">查漏补缺</text>
+      </view>
+
+      <view class="quick-item" bindtap="onGuidance">
+        <view class="quick-icon guidance">🎯</view>
+        <text class="quick-label">成长指导</text>
+        <text class="quick-desc">个性化建议</text>
+      </view>
+
+      <view class="quick-item" bindtap="onCheckinHistory">
+        <view class="quick-icon history">📊</view>
+        <text class="quick-label">打卡记录</text>
+        <text class="quick-desc">查看历史</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 今日状态 -->
+  <view wx:if="{{currentStudent && todayCheckin}}" class="section card today-status">
+    <text class="section-title">今日状态</text>
+    <view class="status-row">
+      <text class="status-label">心情</text>
+      <text class="status-value">{{todayCheckin.mood || '未记录'}}</text>
+    </view>
+    <view class="status-row">
+      <text class="status-label">学习科目</text>
+      <text class="status-value">{{todayCheckin.subjects_today || '未记录'}}</text>
+    </view>
+    <view class="status-row">
+      <text class="status-label">作业</text>
+      <text class="status-value">{{todayCheckin.homework_done || '未记录'}}</text>
+    </view>
+    <view wx:if="{{todayCheckin.ai_summary}}" class="status-summary">
+      <text class="summary-label">AI 小结：</text>
+      <text class="summary-text">{{todayCheckin.ai_summary}}</text>
+    </view>
+  </view>
+
+</view>

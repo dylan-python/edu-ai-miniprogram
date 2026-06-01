@@ -1,0 +1,56 @@
+<view class="page-guidance">
+  <view class="header-actions">
+    <button class="btn-primary" bindtap="onGenerateAI" loading="{{generating}}">
+      {{generating ? 'AI 生成中...' : '🎯 AI 生成最新指导'}}
+    </button>
+  </view>
+
+  <view wx:if="{{!currentStudent}}" class="empty-state">
+    <text>请先在首页选择学生</text>
+  </view>
+
+  <view wx:elif="{{guidances.length === 0 && !generating}}" class="empty-state">
+    <text class="empty-icon">🎯</text>
+    <text>还没有成长指导记录</text>
+    <text class="empty-hint">点击上方按钮让 AI 分析生成</text>
+  </view>
+
+  <block wx:for="{{guidances}}" wx:key="id">
+    <view class="card guidance-card">
+      <view class="guidance-header">
+        <text class="guidance-date">{{item.date}}</text>
+        <text class="guidance-source">{{item.source === 'ai_auto' ? 'AI 生成' : '人工'}}</text>
+      </view>
+      <text class="guidance-title">{{item.title}}</text>
+      <view class="guidance-content">
+        <text wx:if="{{item.content[0] === '{'}}" class="guidance-json">点击查看详情 →</text>
+        <text wx:else>{{item.content}}</text>
+      </view>
+      <view class="guidance-footer" bindtap="onViewDetail" data-id="{{item.id}}" data-content="{{item.content}}">
+        <text class="view-detail">查看详情 ›</text>
+      </view>
+    </view>
+  </block>
+
+  <!-- 详情弹窗 -->
+  <view wx:if="{{showDetail}}" class="modal-mask" bindtap="onCloseDetail">
+    <view class="modal-content" catchtap="">
+      <view class="modal-header">
+        <text>指导详情</text>
+        <text class="modal-close" bindtap="onCloseDetail">×</text>
+      </view>
+      <scroll-view scroll-y class="modal-body">
+        <view wx:for="{{detailItems}}" wx:key="key" class="detail-item">
+          <text class="detail-key">{{detailLabels[key] || key}}</text>
+          <text class="detail-value" wx:if="{{key !== 'weaknesses'}}">{{item}}</text>
+          <view wx:elif="{{key === 'weaknesses'}}" class="weakness-list">
+            <view wx:for="{{item}}" wx:for-item="w" wx:key="name" class="weakness-item">
+              <text class="wname">{{w.name}}</text>
+              <text wx:if="{{w.suggestion}}">→ {{w.suggestion}}</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

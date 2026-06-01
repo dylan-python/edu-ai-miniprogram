@@ -1,0 +1,10 @@
+.page-add-exam { padding-bottom: 100rpx; }
+.form-row { display: flex; gap: 20rpx; }
+.form-item.half { flex: 1; }
+.btn-add-question { background: #E8F0FE; color: #4F8CF6; border-radius: 30rpx; font-size: 24rpx; padding: 8rpx 24rpx; line-height: 1.8; }
+.question-card { margin-bottom: 16rpx; }
+.q-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16rpx; padding-bottom: 12rpx; border-bottom: 1rpx solid #f0f0f0; }
+.q-num { font-size: 28rpx; font-weight: 600; color: #4F8CF6; }
+.q-delete { font-size: 36rpx; color: #F44336; padding: 0 8rpx; }
+.action-bar { padding: 30rpx 20rpx; }
+.btn-save { width: 100%; }

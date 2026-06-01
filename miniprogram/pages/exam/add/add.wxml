@@ -1,0 +1,76 @@
+<view class="page-add-exam">
+  <view class="card form-card">
+    <view class="form-item">
+      <text class="form-label">科目 *</text>
+      <picker mode="selector" range="{{subjects}}" value="{{subjectIndex}}" bindchange="onSubjectChange">
+        <view class="form-input">{{form.subject || '请选择科目'}}</view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <text class="form-label">考试名称</text>
+      <input class="form-input" placeholder="如：期中考试" value="{{form.exam_name}}" bindinput="onInput" data-field="exam_name" />
+    </view>
+    <view class="form-row">
+      <view class="form-item half">
+        <text class="form-label">得分</text>
+        <input class="form-input" placeholder="得分" type="digit" value="{{form.score}}" bindinput="onInput" data-field="score" />
+      </view>
+      <view class="form-item half">
+        <text class="form-label">总分</text>
+        <input class="form-input" placeholder="总分" type="digit" value="{{form.total_score}}" bindinput="onInput" data-field="total_score" />
+      </view>
+    </view>
+    <view class="form-item">
+      <text class="form-label">考试日期</text>
+      <picker mode="date" value="{{form.exam_date}}" bindchange="onDateChange">
+        <view class="form-input">{{form.exam_date}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="section-header" style="padding:20rpx">
+    <text class="section-title">题目详情（可选）</text>
+    <button class="btn-add-question" bindtap="onAddQuestion">+ 添加</button>
+  </view>
+
+  <view wx:for="{{questions}}" wx:key="index" class="card question-card">
+    <view class="q-header">
+      <text class="q-num">第 {{index+1}} 题</text>
+      <text class="q-delete" bindtap="onDeleteQuestion" data-index="{{index}}">×</text>
+    </view>
+    <view class="form-item">
+      <text class="form-label">题目</text>
+      <input class="form-input" placeholder="输入题目" value="{{item.question}}" bindinput="onQuestionInput" data-index="{{index}}" data-field="question" />
+    </view>
+    <view class="form-row">
+      <view class="form-item half">
+        <text class="form-label">学生答案</text>
+        <input class="form-input" placeholder="学生答案" value="{{item.student_answer}}" bindinput="onQuestionInput" data-index="{{index}}" data-field="student_answer" />
+      </view>
+      <view class="form-item half">
+        <text class="form-label">正确答案</text>
+        <input class="form-input" placeholder="正确答案" value="{{item.correct_answer}}" bindinput="onQuestionInput" data-index="{{index}}" data-field="correct_answer" />
+      </view>
+    </view>
+    <view class="form-row">
+      <view class="form-item half">
+        <text class="form-label">得分</text>
+        <input class="form-input" placeholder="得分" type="digit" value="{{item.score}}" bindinput="onQuestionInput" data-index="{{index}}" data-field="score" />
+      </view>
+      <view class="form-item half">
+        <text class="form-label">满分</text>
+        <input class="form-input" placeholder="满分" type="digit" value="{{item.max_score}}" bindinput="onQuestionInput" data-index="{{index}}" data-field="max_score" />
+      </view>
+    </view>
+    <view class="form-item">
+      <text class="form-label">知识点</text>
+      <input class="form-input" placeholder="如：加减法、阅读理解" value="{{item.category}}" bindinput="onQuestionInput" data-index="{{index}}" data-field="category" />
+    </view>
+  </view>
+
+  <view class="action-bar">
+    <button class="btn-primary btn-save" bindtap="onSave" loading="{{saving}}">
+      {{saving ? '分析中...' : '保存并分析'}}
+    </button>
+  </view>
+</view>

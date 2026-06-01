@@ -1,0 +1,72 @@
+.page-profile {
+  padding-bottom: 100rpx;
+}
+
+.avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60rpx 0 30rpx;
+}
+
+.avatar-circle {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  background: linear-gradient(135deg, #4F8CF6, #6C5CE7);
+  color: #fff;
+  font-size: 48rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16rpx;
+}
+
+.avatar-hint {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.form-card {
+  margin: 0 20rpx;
+}
+
+.form-item {
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.form-label {
+  font-size: 26rpx;
+  color: #666;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.form-input {
+  font-size: 28rpx;
+  color: #333;
+  padding: 8rpx 0;
+  min-height: 44rpx;
+}
+
+.action-bar {
+  padding: 40rpx 20rpx;
+}
+
+.btn-save {
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+
+.btn-delete {
+  background: #fff;
+  color: #ff4444;
+  border: 2rpx solid #ff4444;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  text-align: center;
+  width: 100%;
+}

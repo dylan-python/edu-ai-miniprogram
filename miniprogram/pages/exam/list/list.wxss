@@ -1,0 +1,47 @@
+.page-exam-list {
+  padding-bottom: 40rpx;
+}
+.header-actions { padding: 20rpx; }
+.btn-add-exam { width: 100%; }
+.exam-card { position: relative; }
+.exam-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+.exam-subject-badge {
+  padding: 6rpx 20rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #fff;
+}
+.exam-subject-badge.语文 { background: #FF8A65; }
+.exam-subject-badge.数学 { background: #4FC3F7; }
+.exam-subject-badge.英语 { background: #81C784; }
+.exam-subject-badge.科学 { background: #BA68C8; }
+.exam-subject-badge { background: #90A4AE; }
+.exam-score {
+  display: flex;
+  align-items: baseline;
+}
+.score-num { font-size: 40rpx; font-weight: 700; }
+.score-divider { font-size: 24rpx; color: #999; margin: 0 4rpx; }
+.score-total { font-size: 28rpx; color: #999; }
+.exam-score.good .score-num { color: #4CAF50; }
+.exam-score.ok .score-num { color: #FF9800; }
+.exam-score.needs-work .score-num { color: #F44336; }
+.exam-info {
+  display: flex;
+  justify-content: space-between;
+}
+.exam-name { font-size: 26rpx; color: #333; }
+.exam-date { font-size: 24rpx; color: #999; }
+.exam-weakness { margin-top: 10rpx; font-size: 24rpx; }
+.weak-label { color: #F44336; }
+.weak-text { color: #666; }
+.exam-arrow {
+  position: absolute; right: 20rpx; top: 50%;
+  transform: translateY(-50%); font-size: 36rpx; color: #ccc;
+}

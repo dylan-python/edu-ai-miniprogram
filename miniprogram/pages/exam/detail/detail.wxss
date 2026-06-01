@@ -1,0 +1,46 @@
+.page-detail { padding-bottom: 40rpx; }
+.score-card {
+  text-align: center;
+  background: linear-gradient(135deg, #4F8CF6, #6C5CE7);
+  color: #fff;
+}
+.subject-badge {
+  display: inline-block;
+  padding: 6rpx 24rpx;
+  border-radius: 20rpx;
+  background: rgba(255,255,255,0.2);
+  font-size: 24rpx;
+  margin-bottom: 16rpx;
+}
+.score-display { margin: 20rpx 0; display: flex; align-items: baseline; justify-content: center; }
+.score-big { font-size: 80rpx; font-weight: 700; }
+.score-slash { font-size: 36rpx; margin: 0 8rpx; opacity: 0.7; }
+.score-small { font-size: 40rpx; opacity: 0.7; }
+.exam-title { font-size: 28rpx; display: block; opacity: 0.9; }
+.exam-date-label { font-size: 22rpx; display: block; opacity: 0.6; margin-top: 8rpx; }
+.analysis-section { margin-top: 0; }
+.section-title { font-size: 32rpx; font-weight: 600; color: #333; display: block; margin-bottom: 20rpx; }
+.analysis-block { margin-bottom: 20rpx; padding-bottom: 20rpx; border-bottom: 1rpx solid #f0f0f0; }
+.block-label { font-size: 26rpx; font-weight: 500; color: #333; display: block; margin-bottom: 8rpx; }
+.block-label.good { color: #4CAF50; }
+.block-label.weak { color: #F44336; }
+.block-text { font-size: 24rpx; color: #666; line-height: 1.8; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 10rpx; }
+.tag { padding: 6rpx 16rpx; border-radius: 20rpx; font-size: 22rpx; }
+.tag-good { background: #E8F5E9; color: #4CAF50; }
+.tag-bad { background: #FFEBEE; color: #F44336; }
+.weak-item { margin-bottom: 12rpx; }
+.weak-name { font-size: 24rpx; font-weight: 500; color: #333; display: block; }
+.weak-sev { font-size: 20rpx; padding: 2rpx 12rpx; border-radius: 12rpx; display: inline-block; margin: 4rpx 0; }
+.weak-sev.high { background: #FFEBEE; color: #F44336; }
+.weak-sev.medium { background: #FFF3E0; color: #FF9800; }
+.weak-sev.low { background: #E8F5E9; color: #4CAF50; }
+.weak-sug { font-size: 22rpx; color: #666; display: block; margin-top: 4rpx; }
+.encouragement {
+  text-align: center;
+  padding: 20rpx;
+  background: #FFF8E1;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  color: #F57C00;
+}

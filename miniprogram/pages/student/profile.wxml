@@ -1,0 +1,40 @@
+<view class="page-profile">
+  <view class="avatar-section">
+    <view class="avatar-circle">{{form.name ? form.name[0] : '?'}}</view>
+    <text class="avatar-hint">{{mode === 'add' ? '添加学生' : '编辑资料'}}</text>
+  </view>
+
+  <view class="card form-card">
+    <view class="form-item">
+      <text class="form-label">姓名 *</text>
+      <input class="form-input" placeholder="请输入学生姓名" value="{{form.name}}" bindinput="onInput" data-field="name" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">年级 *</text>
+      <picker mode="selector" range="{{grades}}" value="{{gradeIndex}}" bindchange="onGradeChange">
+        <view class="form-input">{{form.grade || '请选择年级'}}</view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <text class="form-label">班级</text>
+      <input class="form-input" placeholder="如：一班" value="{{form.class_name}}" bindinput="onInput" data-field="class_name" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">学校</text>
+      <input class="form-input" placeholder="请输入学校名称" value="{{form.school}}" bindinput="onInput" data-field="school" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">家长姓名</text>
+      <input class="form-input" placeholder="请输入家长姓名" value="{{form.parent_name}}" bindinput="onInput" data-field="parent_name" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">家长电话</text>
+      <input class="form-input" placeholder="请输入联系电话" type="number" value="{{form.parent_phone}}" bindinput="onInput" data-field="parent_phone" />
+    </view>
+  </view>
+
+  <view class="action-bar">
+    <button class="btn-primary btn-save" bindtap="onSave">保存</button>
+    <button wx:if="{{mode === 'edit'}}" class="btn-delete" bindtap="onDelete">删除学生</button>
+  </view>
+</view>

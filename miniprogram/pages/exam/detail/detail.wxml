@@ -1,0 +1,63 @@
+<view class="page-detail">
+  <view wx:if="{{exam}}" class="content">
+    <!-- 成绩卡片 -->
+    <view class="card score-card">
+      <view class="subject-badge">{{exam.subject}}</view>
+      <view class="score-display">
+        <text class="score-big">{{exam.score}}</text>
+        <text class="score-slash">/</text>
+        <text class="score-small">{{exam.total_score}}</text>
+      </view>
+      <text class="exam-title">{{exam.exam_name || '考试'}}</text>
+      <text class="exam-date-label">{{exam.exam_date}}</text>
+    </view>
+
+    <!-- AI 分析 -->
+    <view wx:if="{{analysis}}" class="card analysis-section">
+      <text class="section-title">📊 AI 分析报告</text>
+
+      <view class="analysis-block">
+        <text class="block-label">整体评估</text>
+        <text class="block-text">{{analysis.overall_assessment}}</text>
+      </view>
+
+      <view wx:if="{{analysis.strengths && analysis.strengths.length}}" class="analysis-block">
+        <text class="block-label good">✅ 优势知识点</text>
+        <view wx:for="{{analysis.strengths}}" wx:key="*this" class="tag-list">
+          <text class="tag tag-good">{{item}}</text>
+        </view>
+      </view>
+
+      <view wx:if="{{analysis.weaknesses && analysis.weaknesses.length}}" class="analysis-block">
+        <text class="block-label weak">⚠️ 薄弱知识点</text>
+        <view wx:for="{{analysis.weaknesses}}" wx:key="name" class="weak-item">
+          <text class="weak-name">{{item.name}}</text>
+          <text class="weak-sev {{item.severity}}">{{item.severity === 'high' ? '急需加强' : item.severity === 'medium' ? '需要巩固' : '可以优化'}}</text>
+          <text class="weak-sug">{{item.suggestion}}</text>
+        </view>
+      </view>
+
+      <view wx:if="{{analysis.study_plan}}" class="analysis-block">
+        <text class="block-label">📚 学习计划建议</text>
+        <text class="block-text">{{analysis.study_plan}}</text>
+      </view>
+
+      <view wx:if="{{analysis.parent_advice}}" class="analysis-block">
+        <text class="block-label">👨‍👩‍👧‍👦 给家长的建议</text>
+        <text class="block-text">{{analysis.parent_advice}}</text>
+      </view>
+
+      <view wx:if="{{analysis.encouragement}}" class="encouragement">
+        <text>💪 {{analysis.encouragement}}</text>
+      </view>
+    </view>
+
+    <view wx:else class="loading-container">
+      <text>正在生成 AI 分析...</text>
+    </view>
+  </view>
+
+  <view wx:else class="loading-container">
+    <text>加载中...</text>
+  </view>
+</view>
