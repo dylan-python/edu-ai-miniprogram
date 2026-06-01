@@ -17,4 +17,11 @@ Page({
   onExamDetail(e) {
     wx.navigateTo({ url: `/pages/exam/detail/detail?id=${e.currentTarget.dataset.id}` })
   },
+  subjectClass(subject) {
+    const map = {
+      '语文': 'chinese', '数学': 'math', '英语': 'english',
+      '科学': 'science', '道德与法治': 'ethics', '其他': 'other'
+    }
+    return map[subject] || 'other'
+  },
 })

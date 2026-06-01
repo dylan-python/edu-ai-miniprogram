@@ -10,7 +10,7 @@
 
   <view wx:for="{{exams}}" wx:key="id" class="card exam-card" bindtap="onExamDetail" data-id="{{item.id}}">
     <view class="exam-header">
-      <view class="exam-subject-badge {{item.subject}}">{{item.subject}}</view>
+      <view class="exam-subject-badge {{subjectClass(item.subject)}}">{{item.subject}}</view>
       <view class="exam-score {{item.score && item.total_score && (item.score/item.total_score >= 0.8) ? 'good' : (item.score/item.total_score >= 0.6) ? 'ok' : 'needs-work'}}">
         <text class="score-num">{{item.score}}</text>
         <text class="score-divider">/</text>

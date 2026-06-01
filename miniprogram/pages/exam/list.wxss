@@ -17,10 +17,10 @@
   font-weight: 500;
   color: #fff;
 }
-.exam-subject-badge.语文 { background: #FF8A65; }
-.exam-subject-badge.数学 { background: #4FC3F7; }
-.exam-subject-badge.英语 { background: #81C784; }
-.exam-subject-badge.科学 { background: #BA68C8; }
+.exam-subject-badge.chinese { background: #FF8A65; }
+.exam-subject-badge.math { background: #4FC3F7; }
+.exam-subject-badge.english { background: #81C784; }
+.exam-subject-badge.science { background: #BA68C8; }
 .exam-subject-badge { background: #90A4AE; }
 .exam-score {
   display: flex;
